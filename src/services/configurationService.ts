@@ -20,172 +20,172 @@ const LARGE_OBJECT_THRESHOLD = 1024 * 1024; // 1MB threshold for using IndexedDB
 
 // Default configuration
 export const DEFAULT_CONFIG: ConfigurationData = {
-  standardMenus: [
+  "standardMenus": [
     {
-      id: "home",
-      name: "Home",
-      enabled: true,
-      icon: "home",
-      homePageType: "html",
-      homePageValue: "<h1>Welcome to TSE Demo Builder</h1>",
+      "id": "home",
+      "name": "Home",
+      "enabled": true,
+      "icon": "home",
+      "homePageType": "html",
+      "homePageValue": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Euronews Analytics Dashboard</title>\n\n    <style>\n      @import url(\"https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap\");\n\n      :root {\n        --brand-color: #0675f4;\n        --brand-color-10-percent-opacity: #0675f419;\n        --text-dark: #1c1c1c;\n        --text-muted: #6b7280;\n        --card-bg: #ffffff;\n        --card-border: #e5e7eb;\n      }\n\n      body {\n        font-family: \"Work Sans\", sans-serif;\n        background: var(--brand-color);\n        margin: 0;\n        padding: 0;\n        color: var(--text-dark);\n      }\n\n      .Box-container{\n        border: none !important;\n        padding: 0 !important;\n      }\n\n      .header {\n        background: white;\n        margin: 0 auto 16px;\n        padding: 26px 0;\n        border-radius: 16px;\n        text-align: center;\n      }\n\n      .company-name {\n        font-size: 24px;\n        font-weight: 700;\n        color: #555;\n      }\n\n      .container {\n        margin: 0 auto;\n        padding: 24px;\n        background: white;\n        border-radius: 16px;\n      }\n\n      .cards-grid {\n        display: grid;\n        grid-template-columns: repeat(4, 1fr);\n        gap: 16px;\n        padding-bottom: 16px;\n      }\n\n      @media (max-width: 1200px) {\n        .cards-grid {\n          grid-template-columns: repeat(2, 1fr);\n        }\n      }\n\n      @media (max-width: 768px) {\n        body {\n          padding: 16px;\n        }\n\n        .cards-grid {\n          grid-template-columns: 1fr;\n        }\n      }\n\n      .card {\n        background: var(--card-bg);\n        border: 1px solid var(--card-border);\n        border-radius: 16px;\n        padding: 10px;\n        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);\n      }\n\n      .footer {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 16px 16px 0;\n        background: white;\n        text-align: center;\n        font-size: 14px;\n        box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.08);\n        z-index: 1000;\n      }\n\n      .btn {\n        background: var(--brand-color);\n        color: #fff;\n        font-weight: 700;\n        font-size: 16px;\n        padding: 12px 24px;\n        text-decoration: none;\n        border-radius: 999px;\n        cursor: pointer;\n        border: none;\n        margin: 0 4px;\n        display: inline-block;\n        transition: all 0.2s;\n      }\n\n      .btn:hover {\n        transform: translateY(-2px);\n        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);\n      }\n\n      .parent{\n        position: relative;\n        height: calc(100vh - 114px);\n\n      }\n\n      .header-container{\n        background: var(--brand-color-10-percent-opacity);\n        padding: 24px;\n        border-radius: 8px;\n        border: 1px solid rgb(226, 232, 240);\n      }\n\n      .btn.inverse {\n        background: transparent;\n        border: 2px solid var(--brand-color);\n        color: var(--brand-color);\n      }\n\n      .btn.inverse:hover {\n        background: var(--brand-color);\n        color: white;\n      }\n    </style>\n  </head>\n\n  <body>\n    <div class=\"parent\">\n      <div class=\"header-container\">\n        <div class=\"header\">\n          \n          <img\n            src=\"https://media.brand.dev/900273f8-f041-4f64-aa3e-13ac2c6bf01f.svg\"\n            alt=\"Euronews Logo\"\n            style=\"max-width: 200px; max-height: 72px; object-fit: contain\"\n          />\n          \n        </div>\n\n        <div class=\"container\">\n          \n          <div class=\"cards-grid\">\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_0\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_1\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_2\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_3\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n          </div>\n          \n        </div>\n      </div>\n\n      <div class=\"footer\">\n        <a class=\"btn\" href=\"/dashboard\">View Dashboard</a>\n        <a class=\"btn inverse\" href=\"/spotter\">Ask Genie</a>\n      </div>\n    </div>\n  </body>\n</html>\n"
     },
     {
-      id: "favorites",
-      name: "Favorites",
-      enabled: true,
-      icon: "favorites",
-      homePageType: "html",
-      homePageValue: "<h1>Favorites</h1>",
+      "id": "spotter",
+      "name": "Genie",
+      "enabled": true,
+      "icon": "spotter-custom.svg",
+      "homePageType": "html",
+      "homePageValue": "<h1>Genie</h1>"
     },
     {
-      id: "my-reports",
-      name: "My Reports",
-      enabled: true,
-      icon: "my-reports",
-      homePageType: "html",
-      homePageValue: "<h1>My Reports</h1>",
-    },
-    {
-      id: "spotter",
-      name: "Spotter",
-      enabled: true,
-      icon: "spotter-custom.svg",
-      homePageType: "html",
-      homePageValue: "<h1>Spotter</h1>",
-    },
-    {
-      id: "search",
-      name: "Search",
-      enabled: true,
-      icon: "search",
-      homePageType: "html",
-      homePageValue: "<h1>Search</h1>",
-    },
-    {
-      id: "full-app",
-      name: "Full App",
-      enabled: true,
-      icon: "full-app",
-      homePageType: "html",
-      homePageValue: "<h1>Full App</h1>",
-    },
-    {
-      id: "all-content",
-      name: "All Content",
-      enabled: true,
-      icon: "📚",
-      homePageType: "html",
-      homePageValue: "<h1>All Content</h1>",
-      excludeSystemContent: true,
-    },
+      "id": "dashboard",
+      "name": "Dashboard",
+      "enabled": true,
+      "icon": "dashboard",
+      "providerContentType": "dashboard"
+    }
   ],
-  customMenus: [],
-  menuOrder: [
+  "customMenus": [],
+  "menuOrder": [
     "home",
-    "favorites",
-    "my-reports",
-    "spotter",
-    "search",
-    "full-app",
-    "all-content",
+    "dashboard",
+    "spotter"
   ],
-  homePageConfig: {
-    type: "html",
-    value: "<h1>Welcome to TSE Demo Builder</h1>",
+  "homePageConfig": {
+    "type": "html",
+    "value": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Euronews Analytics Dashboard</title>\n\n    <style>\n      @import url(\"https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap\");\n\n      :root {\n        --brand-color: #0675f4;\n        --brand-color-10-percent-opacity: #0675f419;\n        --text-dark: #1c1c1c;\n        --text-muted: #6b7280;\n        --card-bg: #ffffff;\n        --card-border: #e5e7eb;\n      }\n\n      body {\n        font-family: \"Work Sans\", sans-serif;\n        background: var(--brand-color);\n        margin: 0;\n        padding: 0;\n        color: var(--text-dark);\n      }\n\n      .Box-container{\n        border: none !important;\n        padding: 0 !important;\n      }\n\n      .header {\n        background: white;\n        margin: 0 auto 16px;\n        padding: 26px 0;\n        border-radius: 16px;\n        text-align: center;\n      }\n\n      .company-name {\n        font-size: 24px;\n        font-weight: 700;\n        color: #555;\n      }\n\n      .container {\n        margin: 0 auto;\n        padding: 24px;\n        background: white;\n        border-radius: 16px;\n      }\n\n      .cards-grid {\n        display: grid;\n        grid-template-columns: repeat(4, 1fr);\n        gap: 16px;\n        padding-bottom: 16px;\n      }\n\n      @media (max-width: 1200px) {\n        .cards-grid {\n          grid-template-columns: repeat(2, 1fr);\n        }\n      }\n\n      @media (max-width: 768px) {\n        body {\n          padding: 16px;\n        }\n\n        .cards-grid {\n          grid-template-columns: 1fr;\n        }\n      }\n\n      .card {\n        background: var(--card-bg);\n        border: 1px solid var(--card-border);\n        border-radius: 16px;\n        padding: 10px;\n        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);\n      }\n\n      .footer {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 16px 16px 0;\n        background: white;\n        text-align: center;\n        font-size: 14px;\n        box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.08);\n        z-index: 1000;\n      }\n\n      .btn {\n        background: var(--brand-color);\n        color: #fff;\n        font-weight: 700;\n        font-size: 16px;\n        padding: 12px 24px;\n        text-decoration: none;\n        border-radius: 999px;\n        cursor: pointer;\n        border: none;\n        margin: 0 4px;\n        display: inline-block;\n        transition: all 0.2s;\n      }\n\n      .btn:hover {\n        transform: translateY(-2px);\n        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);\n      }\n\n      .parent{\n        position: relative;\n        height: calc(100vh - 114px);\n\n      }\n\n      .header-container{\n        background: var(--brand-color-10-percent-opacity);\n        padding: 24px;\n        border-radius: 8px;\n        border: 1px solid rgb(226, 232, 240);\n      }\n\n      .btn.inverse {\n        background: transparent;\n        border: 2px solid var(--brand-color);\n        color: var(--brand-color);\n      }\n\n      .btn.inverse:hover {\n        background: var(--brand-color);\n        color: white;\n      }\n    </style>\n  </head>\n\n  <body>\n    <div class=\"parent\">\n      <div class=\"header-container\">\n        <div class=\"header\">\n          \n          <img\n            src=\"https://media.brand.dev/900273f8-f041-4f64-aa3e-13ac2c6bf01f.svg\"\n            alt=\"Euronews Logo\"\n            style=\"max-width: 200px; max-height: 72px; object-fit: contain\"\n          />\n          \n        </div>\n\n        <div class=\"container\">\n          \n          <div class=\"cards-grid\">\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_0\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_1\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_2\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f126870120127b968529ad725bc772?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_3\"\n                width=\"100%\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n          </div>\n          \n        </div>\n      </div>\n\n      <div class=\"footer\">\n        <a class=\"btn\" href=\"/dashboard\">View Dashboard</a>\n        <a class=\"btn inverse\" href=\"/spotter\">Ask Genie</a>\n      </div>\n    </div>\n  </body>\n</html>\n"
   },
-  appConfig: {
-    provider: "thoughtspot",
-    databricks: undefined,
-    thoughtspotUrl: "https://7dxperts.thoughtspot.cloud/",
-    orgIdentifier: undefined,
-    applicationName: "TSE Demo Builder",
-    logo: "/logo.png",
-    earlyAccessFlags: "enable-modular-home\nenable-custom-styling",
-    favicon: "/logo.png",
-    showFooter: true,
-    disableSettings: false,
-    chatbot: {
-      enabled: true,
-      defaultModelId: undefined,
-      welcomeMessage: "Hello! I'm your AI assistant. What would you like to know about your data?",
-      position: "bottom-right",
-      primaryColor: "#3b82f6",
-      hoverColor: "#2563eb",
+  "appConfig": {
+    "provider": "databricks",
+    "applicationName": "Euronews",
+    "logo": "https://media.brand.dev/900273f8-f041-4f64-aa3e-13ac2c6bf01f.svg",
+    "favicon": "https://media.brand.dev/900273f8-f041-4f64-aa3e-13ac2c6bf01f.svg",
+    "earlyAccessFlags": "",
+    "showFooter": false,
+    "disableSettings": true,
+    "chatbot": {
+      "enabled": false
     },
-    authType: "None"
+    "authType": "None",
+    "faviconSyncEnabled": true,
+    "databricks": {
+      "workspaceUrl": "https://zsah-dataparqdev.cloud.databricks.com",
+      "dashboardId": "01f126870120127b968529ad725bc772",
+      "genieSpaceId": "01f126870219134e96dbcc47cf1f3e86",
+      "kpiWidgetIds": [
+        "insights~kpi_0",
+        "insights~kpi_1",
+        "insights~kpi_2",
+        "insights~kpi_3"
+      ],
+      "embedMode": "iframe",
+      "dashboardVersion": "v3",
+      "orgId": "7459895c-5977-482f-96a3-769443f25fc8"
+    }
   },
-  fullAppConfig: {
-    showPrimaryNavbar: true,
-    hideHomepageLeftNav: false,
+  "fullAppConfig": {
+    "showPrimaryNavbar": true,
+    "hideHomepageLeftNav": false
   },
-  stylingConfig: {
-    application: {
-      topBar: {
-        backgroundColor: "#ffffff",
-        foregroundColor: "#333333",
-        logoUrl: "/logo.png",
+  "stylingConfig": {
+    "application": {
+      "topBar": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333",
+        "logoUrl": "https://media.brand.dev/900273f8-f041-4f64-aa3e-13ac2c6bf01f.svg"
       },
-      sidebar: {
-        backgroundColor: "#f5f5f5",
-        foregroundColor: "#333333",
+      "sidebar": {
+        "backgroundColor": "#0675f4",
+        "foregroundColor": "#FFFFFF"
       },
-      footer: {
-        backgroundColor: "#ffffff",
-        foregroundColor: "#333333",
+      "footer": {
+        "backgroundColor": "#1E293B",
+        "foregroundColor": "#333333"
       },
-      dialogs: {
-        backgroundColor: "#ffffff",
-        foregroundColor: "#333333",
+      "dialogs": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
       },
-      buttons: {
-        primary: {
-          backgroundColor: "#3182ce",
-          foregroundColor: "#ffffff",
-          borderColor: "#3182ce",
-          hoverBackgroundColor: "#2c5aa0",
-          hoverForegroundColor: "#ffffff",
+      "buttons": {
+        "primary": {
+          "backgroundColor": "#0675f4",
+          "foregroundColor": "#FFFFFF",
+          "borderColor": "#0675f4",
+          "hoverBackgroundColor": "#2c5aa0",
+          "hoverForegroundColor": "#ffffff"
         },
-        secondary: {
-          backgroundColor: "#ffffff",
-          foregroundColor: "#374151",
-          borderColor: "#d1d5db",
-          hoverBackgroundColor: "#f9fafb",
-          hoverForegroundColor: "#374151",
+        "secondary": {
+          "backgroundColor": "#7cbcf4",
+          "foregroundColor": "#0F172A",
+          "borderColor": "#7cbcf4",
+          "hoverBackgroundColor": "#f9fafb",
+          "hoverForegroundColor": "#374151"
+        }
+      },
+      "backgrounds": {
+        "mainBackground": "#F8FAFC",
+        "contentBackground": "#ffffff",
+        "cardBackground": "#FFFFFF",
+        "borderColor": "#E2E8F0"
+      },
+      "typography": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#6b7280",
+        "linkColor": "#7cbcf4",
+        "linkHoverColor": "#FD0202"
+      },
+      "selectedTheme": "default"
+    },
+    "embeddedContent": {
+      "strings": {},
+      "stringIDs": {},
+      "cssUrl": "",
+      "customCSS": {
+        "variables": {
+          "--ts-var-button--primary-background": "rgba(6, 117, 244, 1.0)",
+          "--ts-var-button--primary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--primary--hover-background": "rgba(6, 117, 244, 0.8)",
+          "--ts-var-button--primary--active-background": "rgba(6, 117, 244, 0.6)",
+          "--ts-var-button--secondary-background": "rgba(124, 188, 244, 1.0)",
+          "--ts-var-button--secondary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--secondary--hover-background": "rgba(124, 188, 244, 0.8)",
+          "--ts-var-button--secondary--active-background": "rgba(124, 188, 244, 0.6)",
+          "--ts-var-button--tertiary-background": "rgba(253, 2, 2, 1.0)",
+          "--ts-var-button--tertiary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--tertiary--hover-background": "rgba(253, 2, 2, 0.8)",
+          "--ts-var-button--tertiary--active-background": "rgba(253, 2, 2, 0.6)",
+          "--ts-var-menu--hover-background": "rgba(124, 188, 244, 0.8)",
+          "--ts-var-root-background": "#FFFFFF",
+          "--ts-var-menu-background": "#FFFFFF",
+          "--ts-var-liveboard-layout-background": "rgba(124, 188, 244, 1.0)"
         },
-      },
-      backgrounds: {
-        mainBackground: "#f7fafc",
-        contentBackground: "#ffffff",
-        cardBackground: "#ffffff",
-        borderColor: "#e2e8f0",
-      },
-      typography: {
-        primaryColor: "#1f2937",
-        secondaryColor: "#6b7280",
-        linkColor: "#3182ce",
-        linkHoverColor: "#2c5aa0",
-      },
-      selectedTheme: "default",
-    },
-    embeddedContent: {
-      strings: {},
-      stringIDs: {},
-      cssUrl: "",
-      customCSS: {
-        variables: {},
-        rules_UNSTABLE: {},
-      },
-    },
-    embedFlags: {},
-    embedDisplay: {
-      hideTitle: false,
-      hideDescription: false,
-    },
+        "rules_UNSTABLE": {}
+      }
+    }
   },
-  userConfig: {
-    users: [],
-    currentUserId: undefined,
-  },
+  "userConfig": {
+    "users": [
+      {
+        "id": "databricks-user",
+        "name": "Databricks User",
+        "description": "Access to Databricks home and Genie",
+        "locale": "en",
+        "access": {
+          "standardMenus": {
+            "home": true,
+            "dashboard": true,
+            "spotter": true
+          },
+          "customMenus": [],
+          "hiddenActions": {
+            "enabled": false,
+            "actions": []
+          }
+        }
+      }
+    ],
+    "currentUserId": "databricks-user"
+  }
 };
 
 // Old storage keys for migration
