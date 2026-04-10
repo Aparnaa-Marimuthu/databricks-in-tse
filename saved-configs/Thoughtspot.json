@@ -1,0 +1,172 @@
+{
+  "standardMenus": [
+    {
+      "id": "home",
+      "name": "Dashboard",
+      "enabled": true,
+      "icon": "dashboard",
+      "homePageType": "html",
+      "homePageValue": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Thoughtspot Analytics Dashboard</title>\n\n    <style>\n      @import url(\"https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap\");\n\n      :root {\n        --brand-color: #1c194d;\n        --brand-color-10-percent-opacity: #1c194d19;\n        --text-dark: #1c1c1c;\n        --text-muted: #6b7280;\n        --card-bg: #ffffff;\n        --card-border: #e5e7eb;\n      }\n\n      html,\n      body {\n        width: 100%;\n        min-width: 0;\n        overflow-x: hidden;\n      }\n\n      body {\n        font-family: \"Work Sans\", sans-serif;\n        background: var(--brand-color);\n        margin: 0;\n        padding: 0;\n        color: var(--text-dark);\n      }\n\n      .Box-container{\n        border: none !important;\n        padding: 0 !important;\n      }\n\n      .header {\n        background: white;\n        margin: 0 auto 16px;\n        padding: 26px 0;\n        border-radius: 16px;\n        text-align: center;\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .company-name {\n        font-size: 24px;\n        font-weight: 700;\n        color: #555;\n      }\n\n      .container {\n        margin: 0 auto;\n        padding: 24px;\n        background: white;\n        border-radius: 16px;\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .cards-grid {\n        display: grid;\n        grid-template-columns: repeat(4, minmax(0, 1fr));\n        gap: 16px;\n        padding-bottom: 16px;\n        width: 100%;\n      }\n\n      @media (max-width: 1200px) {\n        .cards-grid {\n          grid-template-columns: repeat(2, minmax(0, 1fr));\n        }\n      }\n\n      @media (max-width: 768px) {\n        body {\n          padding: 16px;\n        }\n\n        .cards-grid {\n          grid-template-columns: 1fr;\n        }\n      }\n\n      .card {\n        background: var(--card-bg);\n        border: 1px solid var(--card-border);\n        border-radius: 16px;\n        padding: 10px;\n        min-width: 0;\n        overflow: hidden;\n        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);\n      }\n\n      .card iframe {\n        display: block;\n        width: 100%;\n        max-width: 100%;\n        border: none;\n        border-radius: 12px;\n        background: #fff;\n      }\n\n      .footer {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 16px 16px 0;\n        background: white;\n        text-align: center;\n        font-size: 14px;\n        box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.08);\n        z-index: 1000;\n      }\n\n      .btn {\n        background: var(--brand-color);\n        color: #fff;\n        font-weight: 700;\n        font-size: 16px;\n        padding: 12px 24px;\n        text-decoration: none;\n        border-radius: 999px;\n        cursor: pointer;\n        border: none;\n        margin: 0 4px;\n        display: inline-block;\n        transition: all 0.2s;\n      }\n\n      .btn:hover {\n        transform: translateY(-2px);\n        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);\n      }\n\n      .parent{\n        position: relative;\n        height: calc(100vh - 114px);\n        width: 100%;\n        min-width: 0;\n\n      }\n\n      .header-container{\n        background: var(--brand-color-10-percent-opacity);\n        padding: 24px;\n        border-radius: 8px;\n        border: 1px solid rgb(226, 232, 240);\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .btn.inverse {\n        background: transparent;\n        border: 2px solid var(--brand-color);\n        color: var(--brand-color);\n      }\n\n      .btn.inverse:hover {\n        background: var(--brand-color);\n        color: white;\n      }\n    </style>\n  </head>\n\n  <body>\n    <div class=\"parent\">\n      <div class=\"header-container\">\n        <div class=\"header\">\n          \n          <img\n            src=\"https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg\"\n            alt=\"Thoughtspot Logo\"\n            style=\"max-width: 200px; max-height: 72px; object-fit: contain\"\n          />\n          \n        </div>\n\n        <div class=\"container\">\n          \n          <div class=\"card\">\n            <iframe\n              src=\"\"\n              height=\"720px\"\n              frameborder=\"0\"\n              allow=\"fullscreen\"\n            ></iframe>\n          </div>\n          \n        </div>\n      </div>\n    </div>\n  </body>\n</html>\n"
+    },
+    {
+      "id": "my-reports",
+      "name": "My Reports",
+      "enabled": true,
+      "icon": "reports",
+      "homePageType": "liveboard",
+      "homePageValue": "01f0ea287094139ab648457fd000735c"
+    },
+    {
+      "id": "spotter-main",
+      "name": "Spotter",
+      "enabled": true,
+      "icon": "spotter-black",
+      "homePageType": "spotter",
+      "homePageValue": ""
+    }
+  ],
+  "customMenus": [],
+  "menuOrder": [
+    "home",
+    "my-reports",
+    "spotter-main"
+  ],
+  "homePageConfig": {
+    "type": "html",
+    "value": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Thoughtspot Analytics Dashboard</title>\n\n    <style>\n      @import url(\"https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap\");\n\n      :root {\n        --brand-color: #1c194d;\n        --brand-color-10-percent-opacity: #1c194d19;\n        --text-dark: #1c1c1c;\n        --text-muted: #6b7280;\n        --card-bg: #ffffff;\n        --card-border: #e5e7eb;\n      }\n\n      html,\n      body {\n        width: 100%;\n        min-width: 0;\n        overflow-x: hidden;\n      }\n\n      body {\n        font-family: \"Work Sans\", sans-serif;\n        background: var(--brand-color);\n        margin: 0;\n        padding: 0;\n        color: var(--text-dark);\n      }\n\n      .Box-container{\n        border: none !important;\n        padding: 0 !important;\n      }\n\n      .header {\n        background: white;\n        margin: 0 auto 16px;\n        padding: 26px 0;\n        border-radius: 16px;\n        text-align: center;\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .company-name {\n        font-size: 24px;\n        font-weight: 700;\n        color: #555;\n      }\n\n      .container {\n        margin: 0 auto;\n        padding: 24px;\n        background: white;\n        border-radius: 16px;\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .cards-grid {\n        display: grid;\n        grid-template-columns: repeat(4, minmax(0, 1fr));\n        gap: 16px;\n        padding-bottom: 16px;\n        width: 100%;\n      }\n\n      @media (max-width: 1200px) {\n        .cards-grid {\n          grid-template-columns: repeat(2, minmax(0, 1fr));\n        }\n      }\n\n      @media (max-width: 768px) {\n        body {\n          padding: 16px;\n        }\n\n        .cards-grid {\n          grid-template-columns: 1fr;\n        }\n      }\n\n      .card {\n        background: var(--card-bg);\n        border: 1px solid var(--card-border);\n        border-radius: 16px;\n        padding: 10px;\n        min-width: 0;\n        overflow: hidden;\n        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);\n      }\n\n      .card iframe {\n        display: block;\n        width: 100%;\n        max-width: 100%;\n        border: none;\n        border-radius: 12px;\n        background: #fff;\n      }\n\n      .footer {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 16px 16px 0;\n        background: white;\n        text-align: center;\n        font-size: 14px;\n        box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.08);\n        z-index: 1000;\n      }\n\n      .btn {\n        background: var(--brand-color);\n        color: #fff;\n        font-weight: 700;\n        font-size: 16px;\n        padding: 12px 24px;\n        text-decoration: none;\n        border-radius: 999px;\n        cursor: pointer;\n        border: none;\n        margin: 0 4px;\n        display: inline-block;\n        transition: all 0.2s;\n      }\n\n      .btn:hover {\n        transform: translateY(-2px);\n        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);\n      }\n\n      .parent{\n        position: relative;\n        height: calc(100vh - 114px);\n        width: 100%;\n        min-width: 0;\n\n      }\n\n      .header-container{\n        background: var(--brand-color-10-percent-opacity);\n        padding: 24px;\n        border-radius: 8px;\n        border: 1px solid rgb(226, 232, 240);\n        width: 100%;\n        box-sizing: border-box;\n      }\n\n      .btn.inverse {\n        background: transparent;\n        border: 2px solid var(--brand-color);\n        color: var(--brand-color);\n      }\n\n      .btn.inverse:hover {\n        background: var(--brand-color);\n        color: white;\n      }\n    </style>\n  </head>\n\n  <body>\n    <div class=\"parent\">\n      <div class=\"header-container\">\n        <div class=\"header\">\n          \n          <img\n            src=\"https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg\"\n            alt=\"Thoughtspot Logo\"\n            style=\"max-width: 200px; max-height: 72px; object-fit: contain\"\n          />\n          \n        </div>\n\n        <div class=\"container\">\n          \n          <div class=\"cards-grid\">\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f133fcda3c1867a26f6d834f6c5741?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_0\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f133fcda3c1867a26f6d834f6c5741?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_1\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f133fcda3c1867a26f6d834f6c5741?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_2\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n              ></iframe>\n            </div>\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://zsah-dataparqdev.cloud.databricks.com/embed/dashboardsv3/01f133fcda3c1867a26f6d834f6c5741?o=7459895c-5977-482f-96a3-769443f25fc8&fullscreenWidget=insights~kpi_3\"\n                height=\"320px\"\n                frameborder=\"0\"\n                allow=\"fullscreen\"\n              ></iframe>\n            </div>\n            \n          </div>\n          \n        </div>\n      </div>\n    </div>\n  </body>\n</html>\n"
+  },
+  "appConfig": {
+    "provider": "databricks",
+    "applicationName": "Thoughtspot",
+    "logo": "https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg",
+    "favicon": "https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg",
+    "earlyAccessFlags": "",
+    "showFooter": false,
+    "disableSettings": true,
+    "chatbot": {
+      "enabled": false
+    },
+    "authType": "None",
+    "faviconSyncEnabled": true,
+    "databricks": {
+      "workspaceUrl": "https://zsah-dataparqdev.cloud.databricks.com",
+      "dashboardId": "01f133fcda3c1867a26f6d834f6c5741",
+      "genieSpaceId": "01f133fcdb0816909259eb5383ef146d",
+      "kpiWidgetIds": [
+        "insights~kpi_0",
+        "insights~kpi_1",
+        "insights~kpi_2",
+        "insights~kpi_3"
+      ],
+      "embedMode": "iframe",
+      "dashboardVersion": "v3",
+      "orgId": "7459895c-5977-482f-96a3-769443f25fc8"
+    }
+  },
+  "fullAppConfig": {
+    "showPrimaryNavbar": true,
+    "hideHomepageLeftNav": false
+  },
+  "stylingConfig": {
+    "application": {
+      "topBar": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333",
+        "logoUrl": "https://media.brand.dev/5a7ffdce-a5fd-474b-82bd-413c2310304c.jpg"
+      },
+      "sidebar": {
+        "backgroundColor": "#1c194d",
+        "foregroundColor": "#FFFFFF"
+      },
+      "footer": {
+        "backgroundColor": "#1E293B",
+        "foregroundColor": "#333333"
+      },
+      "dialogs": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
+      },
+      "buttons": {
+        "primary": {
+          "backgroundColor": "#1c194d",
+          "foregroundColor": "#FFFFFF",
+          "borderColor": "#1c194d",
+          "hoverBackgroundColor": "#2c5aa0",
+          "hoverForegroundColor": "#ffffff"
+        },
+        "secondary": {
+          "backgroundColor": "#8c8ca4",
+          "foregroundColor": "#0F172A",
+          "borderColor": "#8c8ca4",
+          "hoverBackgroundColor": "#f9fafb",
+          "hoverForegroundColor": "#374151"
+        }
+      },
+      "backgrounds": {
+        "mainBackground": "#F8FAFC",
+        "contentBackground": "#ffffff",
+        "cardBackground": "#FFFFFF",
+        "borderColor": "#E2E8F0"
+      },
+      "typography": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#6b7280",
+        "linkColor": "#8c8ca4",
+        "linkHoverColor": "#cdccd8"
+      },
+      "selectedTheme": "default"
+    },
+    "embeddedContent": {
+      "strings": {},
+      "stringIDs": {},
+      "cssUrl": "",
+      "customCSS": {
+        "variables": {
+          "--ts-var-button--primary-background": "rgba(28, 25, 77, 1.0)",
+          "--ts-var-button--primary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--primary--hover-background": "rgba(28, 25, 77, 0.8)",
+          "--ts-var-button--primary--active-background": "rgba(28, 25, 77, 0.6)",
+          "--ts-var-button--secondary-background": "rgba(140, 140, 164, 1.0)",
+          "--ts-var-button--secondary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--secondary--hover-background": "rgba(140, 140, 164, 0.8)",
+          "--ts-var-button--secondary--active-background": "rgba(140, 140, 164, 0.6)",
+          "--ts-var-button--tertiary-background": "rgba(205, 204, 216, 1.0)",
+          "--ts-var-button--tertiary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--tertiary--hover-background": "rgba(205, 204, 216, 0.8)",
+          "--ts-var-button--tertiary--active-background": "rgba(205, 204, 216, 0.6)",
+          "--ts-var-menu--hover-background": "rgba(140, 140, 164, 0.8)",
+          "--ts-var-root-background": "#FFFFFF",
+          "--ts-var-menu-background": "#FFFFFF",
+          "--ts-var-liveboard-layout-background": "rgba(140, 140, 164, 1.0)"
+        },
+        "rules_UNSTABLE": {}
+      }
+    }
+  },
+  "userConfig": {
+    "users": [
+      {
+        "id": "databricks-user",
+        "name": "Databricks User",
+        "description": "Access to Databricks menus",
+        "locale": "en",
+        "access": {
+          "standardMenus": {
+            "home": true,
+            "my-reports": true,
+            "spotter-main": true
+          },
+          "customMenus": [],
+          "hiddenActions": {
+            "enabled": false,
+            "actions": []
+          }
+        }
+      }
+    ],
+    "currentUserId": "databricks-user"
+  },
+  "version": "1.0.0",
+  "timestamp": "2026-04-10T10:53:51.614475",
+  "description": "TSE Demo Builder Databricks Configuration Export"
+}
