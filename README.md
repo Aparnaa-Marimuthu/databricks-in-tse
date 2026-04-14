@@ -2,7 +2,7 @@
 
 ## How It Works (Architecture)
 
-The application uses a modern, secure client-server architecture built with Next.js.
+The application uses a modern, secure client-server architecture built with Next.js. 
 
 1. **Client (Browser)**: The user interacts with the chatbot UI. When a user sends a message, client-side functions (defined in `spotgptClient.ts`) are called.
 2. **API Routes (Server)**: Instead of calling external services directly from the browser, the client-side functions make requests to internal Next.js API routes (e.g., `/api/spotgpt/chat`). This acts as a secure proxy.
