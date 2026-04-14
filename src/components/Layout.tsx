@@ -2365,6 +2365,7 @@ function LayoutContent({ children }: LayoutProps) {
 
     let providerContentType: string | undefined;
 
+    let matchedStandardMenu: (StandardMenu & Record<string, unknown>) | undefined;
     if (pathSegments[0] === "custom" && pathSegments[1]) {
       const matchedMenu = customMenus.find((menu) => menu.id === pathSegments[1]) as
         | (CustomMenu & Record<string, unknown>)
@@ -2374,12 +2375,12 @@ function LayoutContent({ children }: LayoutProps) {
           ? matchedMenu.providerContentType
           : undefined;
     } else {
-      const matchedMenu = standardMenus.find(
+      matchedStandardMenu = standardMenus.find(
         (menu) => menu.id === activeMenuId
       ) as (StandardMenu & Record<string, unknown>) | undefined;
       providerContentType =
-        typeof matchedMenu?.providerContentType === "string"
-          ? matchedMenu.providerContentType
+        typeof matchedStandardMenu?.providerContentType === "string"
+          ? matchedStandardMenu.providerContentType
           : undefined;
     }
 
@@ -2405,6 +2406,14 @@ function LayoutContent({ children }: LayoutProps) {
       routedContent = <DatabricksDashboardPage />;
     } else if (activeMenuId === "spotter" || providerContentType === "genie") {
       routedContent = <DatabricksGeniePage />;
+    } else if (
+      matchedStandardMenu &&
+      (matchedStandardMenu.homePageType === "html" ||
+        matchedStandardMenu.homePageType === "iframe" ||
+        matchedStandardMenu.homePageType === "image" ||
+        !!matchedStandardMenu.homePageValue)
+    ) {
+      routedContent = children;
     } else {
       routedContent = (
         <div
