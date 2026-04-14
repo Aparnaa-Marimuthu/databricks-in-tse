@@ -2,6 +2,7 @@
 
 import { DatabricksDashboard } from "@databricks/aibi-client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useAppContext } from "../Layout";
 import {
   getDatabricksEmbedToken,
@@ -17,6 +18,7 @@ const DASHBOARD_SCALE_BREAKPOINT = 1280;
 
 export default function DatabricksDashboardPage() {
   const context = useAppContext();
+  const pathname = usePathname();
   const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [embedToken, setEmbedToken] = useState("");
   const [fallbackIframeSrc, setFallbackIframeSrc] = useState("");
@@ -26,7 +28,26 @@ export default function DatabricksDashboardPage() {
   const externalEmbedContainerRef = useRef<HTMLDivElement | null>(null);
 
   const workspaceUrl = context.appConfig.databricks?.workspaceUrl?.trim() || "";
-  const dashboardId = context.appConfig.databricks?.dashboardId?.trim() || "";
+  const standardMenus = context.standardMenus || [];
+  const activeMenuId = useMemo(() => {
+    if (!pathname) return "dashboard";
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments[0] === "menu" && segments[1]) {
+      return segments[1];
+    }
+    if (segments[0] === "dashboard") {
+      return "dashboard";
+    }
+    return "dashboard";
+  }, [pathname]);
+  const selectedMenu = useMemo(
+    () => standardMenus.find((menu) => menu.id === activeMenuId),
+    [standardMenus, activeMenuId]
+  );
+  const dashboardId =
+    selectedMenu?.providerContentId?.trim() ||
+    context.appConfig.databricks?.dashboardId?.trim() ||
+    "";
   const orgId = context.appConfig.databricks?.orgId?.trim() || "";
   const dashboardVersion =
     context.appConfig.databricks?.dashboardVersion === "v1"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useAppContext } from "../Layout";
 
 type GenieAttachment = Record<string, unknown>;
@@ -60,6 +61,7 @@ function TypingIndicator() {
 
 export default function DatabricksGeniePage() {
   const context = useAppContext();
+  const pathname = usePathname();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -68,7 +70,26 @@ export default function DatabricksGeniePage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const genieSpaceId = context.appConfig.databricks?.genieSpaceId?.trim() || "";
+  const standardMenus = context.standardMenus || [];
+  const activeMenuId = useMemo(() => {
+    if (!pathname) return "spotter";
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments[0] === "menu" && segments[1]) {
+      return segments[1];
+    }
+    if (segments[0] === "spotter") {
+      return "spotter";
+    }
+    return "spotter";
+  }, [pathname]);
+  const selectedMenu = useMemo(
+    () => standardMenus.find((menu) => menu.id === activeMenuId),
+    [standardMenus, activeMenuId]
+  );
+  const genieSpaceId =
+    selectedMenu?.providerContentId?.trim() ||
+    context.appConfig.databricks?.genieSpaceId?.trim() ||
+    "";
 
   const canChat = useMemo(() => Boolean(genieSpaceId), [genieSpaceId]);
 

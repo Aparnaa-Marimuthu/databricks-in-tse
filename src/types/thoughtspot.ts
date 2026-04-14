@@ -192,6 +192,7 @@ export interface StandardMenu {
   enabled: boolean;
   icon: string;
   providerContentType?: "dashboard" | "genie";
+  providerContentId?: string;
   homePageType?: string;
   homePageValue?: string;
   tagFilter?: string;
