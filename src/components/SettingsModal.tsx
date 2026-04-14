@@ -654,24 +654,17 @@ function StandardMenusContent({
   appConfig: AppConfig;
   updateAppConfig: (config: AppConfig, bypassClusterWarning?: boolean) => void;
 }) {
-  const [activeSubTab, setActiveSubTab] = useState(initialSubTab || "home");
+  const [activeSubTab, setActiveSubTab] = useState(
+    initialSubTab || standardMenus[0]?.id || "chatbot"
+  );
 
   // Ensure we always have a valid sub-tab selected
   useEffect(() => {
-    const validSubTabs = [
-      "home",
-      "favorites",
-      "my-reports",
-      "spotter",
-      "search",
-      "full-app",
-      "all-content",
-      "chatbot",
-    ];
+    const validSubTabs = [...standardMenus.map((menu) => menu.id), "chatbot"];
     if (!validSubTabs.includes(activeSubTab)) {
-      setActiveSubTab("home");
+      setActiveSubTab(standardMenus[0]?.id || "chatbot");
     }
-  }, [activeSubTab]);
+  }, [activeSubTab, standardMenus]);
   const [isPreviewExpanded, setIsPreviewExpanded] = useState(false);
 
   const [modelOptions, setModelOptions] = useState<
@@ -1840,7 +1833,7 @@ function StandardMenusContent({
 
                 const menu = standardMenus.find((m) => m.id === activeSubTab);
                 if (!menu) {
-                  console.error(
+                  console.warn(
                     "Menu not found for activeSubTab:",
                     activeSubTab,
                     "Available menus:",
@@ -2106,7 +2099,16 @@ function StandardMenusContent({
                       </div>
                     )}
 
-                    {menu.id === "home" && (
+                    {(
+                      menu.id === "home" ||
+                      menu.homePageType === "html" ||
+                      menu.homePageType === "image" ||
+                      menu.homePageType === "iframe" ||
+                      menu.homePageType === "liveboard" ||
+                      menu.homePageType === "answer" ||
+                      menu.homePageType === "spotter" ||
+                      !!menu.homePageValue
+                    ) && (
                       <div
                         style={{
                           marginTop: "24px",
@@ -2122,7 +2124,7 @@ function StandardMenusContent({
                             color: "#374151",
                           }}
                         >
-                          Home Page Content Configuration
+                          Menu Content Configuration
                         </h5>
 
                         <div style={{ marginBottom: "16px" }}>
