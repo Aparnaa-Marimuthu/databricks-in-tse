@@ -1,0 +1,225 @@
+{
+  "standardMenus": [
+    {
+      "id": "home",
+      "name": "Home",
+      "enabled": true,
+      "icon": "home"
+    },
+    {
+      "id": "favorites",
+      "name": "Favorites",
+      "enabled": false,
+      "icon": "home"
+    },
+    {
+      "id": "my_reports",
+      "name": "My Reports",
+      "enabled": true,
+      "icon": "home"
+    },
+    {
+      "id": "spotter",
+      "name": "Spotter",
+      "enabled": true,
+      "icon": "home"
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "enabled": false,
+      "icon": "home"
+    },
+    {
+      "id": "full_app",
+      "name": "Full App",
+      "enabled": false,
+      "icon": "home"
+    },
+    {
+      "id": "all_content",
+      "name": "All Content",
+      "enabled": false,
+      "icon": "home"
+    }
+  ],
+  "customMenus": [
+    {
+      "id": "custom-1776265706505-0",
+      "name": "New liveboard",
+      "description": "",
+      "icon": "dashboard",
+      "enabled": true,
+      "contentSelection": {
+        "type": "specific",
+        "specificContent": {
+          "liveboards": [
+            "edef96f3-c3ca-46f7-a026-7cabdfee4f02"
+          ],
+          "answers": []
+        }
+      },
+      "openDirectly": true
+    }
+  ],
+  "menuOrder": [
+    "home",
+    "my_reports",
+    "spotter",
+    "custom-1776265706505-0"
+  ],
+  "homePageConfig": {
+    "type": "html",
+    "value": "<h1>Welcome to TSE Demo Builder</h1>"
+  },
+  "appConfig": {
+    "thoughtspotUrl": "https://7dxperts.thoughtspot.cloud",
+    "orgIdentifier": "Primary",
+    "applicationName": "Scroll",
+    "logo": "https://media.brand.dev/0af30627-d53a-4aa6-aa10-7d7c2b50919f.png",
+    "earlyAccessFlags": "enable-modular-home\nenable-custom-styling",
+    "favicon": "https://media.brand.dev/0af30627-d53a-4aa6-aa10-7d7c2b50919f.png",
+    "showFooter": false,
+    "disableSettings": true,
+    "chatbot": {
+      "enabled": true,
+      "welcomeMessage": "Hello! I'm your AI assistant. What would you like to know about your data?",
+      "position": "bottom-right",
+      "primaryColor": "#3b82f6",
+      "hoverColor": "#2563eb"
+    },
+    "authType": "TrustedAuthToken",
+    "faviconSyncEnabled": true,
+    "provider": "thoughtspot"
+  },
+  "fullAppConfig": {
+    "showPrimaryNavbar": true,
+    "hideHomepageLeftNav": false
+  },
+  "stylingConfig": {
+    "application": {
+      "topBar": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333",
+        "logoUrl": "https://media.brand.dev/0af30627-d53a-4aa6-aa10-7d7c2b50919f.png"
+      },
+      "sidebar": {
+        "backgroundColor": "#fb6e36",
+        "foregroundColor": "#FFFFFF"
+      },
+      "footer": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
+      },
+      "dialogs": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
+      },
+      "buttons": {
+        "primary": {
+          "backgroundColor": "#fb6e36",
+          "foregroundColor": "#FFFFFF",
+          "borderColor": "#fb6e36",
+          "hoverBackgroundColor": "#2c5aa0",
+          "hoverForegroundColor": "#ffffff"
+        },
+        "secondary": {
+          "backgroundColor": "#fcbc94",
+          "foregroundColor": "#0F172A",
+          "borderColor": "#fcbc94",
+          "hoverBackgroundColor": "#f9fafb",
+          "hoverForegroundColor": "#374151"
+        }
+      },
+      "backgrounds": {
+        "mainBackground": "#ffffff",
+        "contentBackground": "#ffffff",
+        "cardBackground": "#ffffff",
+        "borderColor": "#ffffff"
+      },
+      "typography": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#6b7280",
+        "linkColor": "#fcbc94",
+        "linkHoverColor": "#2c2c24"
+      },
+      "selectedTheme": "default"
+    },
+    "embeddedContent": {
+      "strings": {},
+      "stringIDs": {},
+      "cssUrl": "",
+      "customCSS": {
+        "variables": {
+          "--ts-var-button--primary-background": "rgba(251, 110, 54, 1.0)",
+          "--ts-var-button--primary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--primary--hover-background": "rgba(251, 110, 54, 0.8)",
+          "--ts-var-button--primary--active-background": "rgba(251, 110, 54, 0.6)",
+          "--ts-var-button--secondary-background": "rgba(252, 188, 148, 1.0)",
+          "--ts-var-button--secondary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--secondary--hover-background": "rgba(252, 188, 148, 0.8)",
+          "--ts-var-button--secondary--active-background": "rgba(252, 188, 148, 0.6)",
+          "--ts-var-button--tertiary-background": "rgba(44, 44, 36, 1.0)",
+          "--ts-var-button--tertiary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--tertiary--hover-background": "rgba(44, 44, 36, 0.8)",
+          "--ts-var-button--tertiary--active-background": "rgba(44, 44, 36, 0.6)",
+          "--ts-var-menu--hover-background": "rgba(252, 188, 148, 0.8)",
+          "--ts-var-root-background": "#FFFFFF",
+          "--ts-var-menu-background": "#FFFFFF",
+          "--ts-var-liveboard-layout-background": "rgba(252, 188, 148, 1.0)"
+        },
+        "rules_UNSTABLE": {}
+      }
+    },
+    "embedFlags": {
+      "liveboardEmbed": {
+        "showLiveboardTitle": false,
+        "showLiveboardDescription": false,
+        "isLiveboardHeaderSticky": false,
+        "hideLiveboardHeader": false,
+        "disabledActions": [
+          "makeACopy",
+          "tml"
+        ],
+        "disabledActionReason": "Disabled",
+        "visibleActions": [],
+        "hiddenActions": [
+          "downloadAsPng",
+          "downloadAsCSV"
+        ]
+      }
+    },
+    "embedDisplay": {
+      "hideTitle": false,
+      "hideDescription": false
+    }
+  },
+  "userConfig": {
+    "users": [
+      {
+        "id": "power-user",
+        "name": "Power User",
+        "description": "Full access - can access all features including Search and Full App",
+        "locale": "en",
+        "access": {
+          "standardMenus": {
+            "home": true,
+            "my_reports": true,
+            "spotter": true
+          },
+          "customMenus": [
+            "custom-1776265706505-0"
+          ],
+          "hiddenActions": {
+            "enabled": true,
+            "actions": []
+          }
+        }
+      }
+    ],
+    "currentUserId": "power-user"
+  },
+  "version": "1.0.0",
+  "timestamp": "2026-04-15T15:08:26.509313",
+  "description": "TSE Demo Builder Configuration Export"
+}
