@@ -1,0 +1,202 @@
+{
+  "standardMenus": [
+    {
+      "id": "html-home",
+      "name": "Dashboard",
+      "enabled": true,
+      "icon": "home",
+      "homePageType": "html",
+      "homePageValue": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>Apps Cookbook Analytics Dashboard</title>\n\n    <style>\n      @import url(\"https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap\");\n\n      :root {\n        --brand-color: #fc3927;\n        --brand-color-10-percent-opacity: #fc392719;\n        --text-dark: #1c1c1c;\n        --text-muted: #6b7280;\n        --card-bg: #ffffff;\n        --card-border: #e5e7eb;\n      }\n\n      body {\n        font-family: \"Work Sans\", sans-serif;\n        background: var(--brand-color);\n        margin: 0;\n        padding: 0;\n        color: var(--text-dark);\n      }\n\n      .Box-container{\n        border: none !important;\n        padding: 0 !important;\n      }\n\n      .header {\n        background: white;\n        margin: 0 auto 16px;\n        padding: 26px 0;\n        border-radius: 16px;\n        text-align: center;\n      }\n\n      .company-name {\n        font-size: 24px;\n        font-weight: 700;\n        color: #555;\n      }\n\n      .container {\n        margin: 0 auto;\n        padding: 24px;\n        background: white;\n        border-radius: 16px;\n      }\n\n      .cards-grid {\n        display: grid;\n        grid-template-columns: repeat(4, 1fr);\n        gap: 16px;\n        padding-bottom: 16px;\n      }\n\n      @media (max-width: 1200px) {\n        .cards-grid {\n          grid-template-columns: repeat(2, 1fr);\n        }\n      }\n\n      @media (max-width: 768px) {\n        body {\n          padding: 16px;\n        }\n\n        .cards-grid {\n          grid-template-columns: 1fr;\n        }\n      }\n\n      .card {\n        background: var(--card-bg);\n        border: 1px solid var(--card-border);\n        border-radius: 16px;\n        padding: 10px;\n        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);\n      }\n\n      .footer {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 16px 16px 0;\n        background: white;\n        text-align: center;\n        font-size: 14px;\n        box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.08);\n        z-index: 1000;\n      }\n\n      .btn {\n        background: var(--brand-color);\n        color: #fff;\n        font-weight: 700;\n        font-size: 16px;\n        padding: 12px 24px;\n        text-decoration: none;\n        border-radius: 999px;\n        cursor: pointer;\n        border: none;\n        margin: 0 4px;\n        display: inline-block;\n        transition: all 0.2s;\n      }\n\n      .btn:hover {\n        transform: translateY(-2px);\n        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);\n      }\n\n      .parent{\n        position: relative;\n        height: calc(100vh - 114px);\n\n      }\n\n      .header-container{\n        background: var(--brand-color-10-percent-opacity);\n        padding: 24px;\n        border-radius: 8px;\n        border: 1px solid rgb(226, 232, 240);\n      }\n\n      .btn.inverse {\n        background: transparent;\n        border: 2px solid var(--brand-color);\n        color: var(--brand-color);\n      }\n\n      .btn.inverse:hover {\n        background: var(--brand-color);\n        color: white;\n      }\n    </style>\n  </head>\n\n  <body>\n    <div class=\"parent\">\n      <div class=\"header-container\">\n        <div class=\"header\">\n          \n          <img\n            src=\"https://media.brand.dev/9dfaf0f2-8d6f-47a9-87f9-2ee879cf8dc0.png\"\n            alt=\"Apps Cookbook Logo\"\n            style=\"max-width: 200px; max-height: 72px; object-fit: contain\"\n          />\n          \n        </div>\n\n        <div class=\"container\">\n          <div class=\"cards-grid\">\n            \n            <div class=\"card\">\n              <iframe\n                src=\"https://7dxperts.thoughtspot.cloud/?embedApp=true&orgId=Primary&hideActions=true#/embed/viz/3e08c798-a5cb-4ae9-b54e-c03bf35243ef/22411f44-4815-4206-a194-20b14a0230c7\"\n                width=\"100%\"\n                height=\"320px\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n             \n            <div class=\"card\">\n              <iframe\n                src=\"https://7dxperts.thoughtspot.cloud/?embedApp=true&orgId=Primary&hideActions=true#/embed/viz/3e08c798-a5cb-4ae9-b54e-c03bf35243ef/0a16b946-dd0c-40b7-accd-0c522a73704c\"\n                width=\"100%\"\n                height=\"320px\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n             \n            <div class=\"card\">\n              <iframe\n                src=\"https://7dxperts.thoughtspot.cloud/?embedApp=true&orgId=Primary&hideActions=true#/embed/viz/3e08c798-a5cb-4ae9-b54e-c03bf35243ef/ef331199-b2d5-4848-89b1-1d359d60997e\"\n                width=\"100%\"\n                height=\"320px\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n             \n            <div class=\"card\">\n              <iframe\n                src=\"https://7dxperts.thoughtspot.cloud/?embedApp=true&orgId=Primary&hideActions=true#/embed/viz/3e08c798-a5cb-4ae9-b54e-c03bf35243ef/87e09d5b-213f-405d-a416-17e4cf8cabb0\"\n                width=\"100%\"\n                height=\"320px\"\n                style=\"border: none; border-radius: 12px; background: #fff\"\n              ></iframe>\n            </div>\n            \n          </div>\n        </div>\n      </div>\n\n      <div class=\"footer\">\n        <a class=\"btn\" href=\"/menu/liveboard-main\">View Full Liveboard</a>\n        <a class=\"btn inverse\" href=\"/menu/spotter-main\">Apps Cookbook AI</a>\n      </div>\n    </div>\n  </body>\n</html>\n"
+    },
+    {
+      "id": "liveboard-main",
+      "name": "My Reports",
+      "enabled": true,
+      "icon": "dashboard",
+      "homePageType": "liveboard",
+      "homePageValue": "3e08c798-a5cb-4ae9-b54e-c03bf35243ef"
+    },
+    {
+      "id": "spotter-main",
+      "name": "Spotter",
+      "enabled": true,
+      "icon": "spotter-custom.svg",
+      "homePageType": "spotter",
+      "spotterModelId": "c530fde9-428a-4d16-8da4-c3704bd9b156",
+      "spotterSearchQuery": "How many Monthly Active Builders did we have last month?"
+    },
+    {
+      "id": "liveboard-2",
+      "name": "New tab 1",
+      "enabled": true,
+      "icon": "home",
+      "homePageType": "liveboard",
+      "homePageValue": "c4bd0f13-8603-4c4d-ac8a-306700673873"
+    },
+    {
+      "id": "spotter-2",
+      "name": "New tab 2",
+      "enabled": true,
+      "icon": "dashboard",
+      "homePageType": "spotter",
+      "spotterModelId": "c530fde9-428a-4d16-8da4-c3704bd9b156",
+      "spotterSearchQuery": "How many Monthly Active Builders did we have last month?"
+    }
+  ],
+  "customMenus": [],
+  "menuOrder": [
+    "html-home",
+    "liveboard-main",
+    "spotter-main",
+    "liveboard-2",
+    "spotter-2"
+  ],
+  "homePageConfig": {
+    "type": "html",
+    "value": "<h1>Welcome to TSE Demo Builder</h1>"
+  },
+  "appConfig": {
+    "thoughtspotUrl": "https://7dxperts.thoughtspot.cloud",
+    "orgIdentifier": "Primary",
+    "applicationName": "Apps Cookbook",
+    "logo": "https://media.brand.dev/9dfaf0f2-8d6f-47a9-87f9-2ee879cf8dc0.png",
+    "earlyAccessFlags": "enable-modular-home\nenable-custom-styling",
+    "favicon": "https://media.brand.dev/9dfaf0f2-8d6f-47a9-87f9-2ee879cf8dc0.png",
+    "showFooter": false,
+    "disableSettings": true,
+    "chatbot": {
+      "enabled": true,
+      "welcomeMessage": "Hello! I'm your AI assistant. What would you like to know about your data?",
+      "position": "bottom-right",
+      "primaryColor": "#3b82f6",
+      "hoverColor": "#2563eb"
+    },
+    "authType": "TrustedAuthToken",
+    "faviconSyncEnabled": true,
+    "provider": "thoughtspot"
+  },
+  "fullAppConfig": {
+    "showPrimaryNavbar": true,
+    "hideHomepageLeftNav": false
+  },
+  "stylingConfig": {
+    "application": {
+      "topBar": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333",
+        "logoUrl": "https://media.brand.dev/9dfaf0f2-8d6f-47a9-87f9-2ee879cf8dc0.png"
+      },
+      "sidebar": {
+        "backgroundColor": "#fc3927",
+        "foregroundColor": "#FFFFFF"
+      },
+      "footer": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
+      },
+      "dialogs": {
+        "backgroundColor": "#ffffff",
+        "foregroundColor": "#333333"
+      },
+      "buttons": {
+        "primary": {
+          "backgroundColor": "#fc3927",
+          "foregroundColor": "#FFFFFF",
+          "borderColor": "#fc3927",
+          "hoverBackgroundColor": "#2c5aa0",
+          "hoverForegroundColor": "#ffffff"
+        },
+        "secondary": {
+          "backgroundColor": "#fc9c8c",
+          "foregroundColor": "#0F172A",
+          "borderColor": "#fc9c8c",
+          "hoverBackgroundColor": "#f9fafb",
+          "hoverForegroundColor": "#374151"
+        }
+      },
+      "backgrounds": {
+        "mainBackground": "#ffffff",
+        "contentBackground": "#ffffff",
+        "cardBackground": "#ffffff",
+        "borderColor": "#ffffff"
+      },
+      "typography": {
+        "primaryColor": "#FFFFFF",
+        "secondaryColor": "#6b7280",
+        "linkColor": "#fc9c8c",
+        "linkHoverColor": "#8C0000"
+      },
+      "selectedTheme": "default"
+    },
+    "embeddedContent": {
+      "strings": {},
+      "stringIDs": {},
+      "cssUrl": "",
+      "customCSS": {
+        "variables": {
+          "--ts-var-button--primary-background": "rgba(252, 57, 39, 1.0)",
+          "--ts-var-button--primary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--primary--hover-background": "rgba(252, 57, 39, 0.8)",
+          "--ts-var-button--primary--active-background": "rgba(252, 57, 39, 0.6)",
+          "--ts-var-button--secondary-background": "rgba(252, 156, 140, 1.0)",
+          "--ts-var-button--secondary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--secondary--hover-background": "rgba(252, 156, 140, 0.8)",
+          "--ts-var-button--secondary--active-background": "rgba(252, 156, 140, 0.6)",
+          "--ts-var-button--tertiary-background": "rgba(140, 0, 0, 1.0)",
+          "--ts-var-button--tertiary-color": "rgba(255, 255, 255, 1.0)",
+          "--ts-var-button--tertiary--hover-background": "rgba(140, 0, 0, 0.8)",
+          "--ts-var-button--tertiary--active-background": "rgba(140, 0, 0, 0.6)",
+          "--ts-var-menu--hover-background": "rgba(252, 156, 140, 0.8)",
+          "--ts-var-root-background": "#FFFFFF",
+          "--ts-var-menu-background": "#FFFFFF",
+          "--ts-var-liveboard-layout-background": "rgba(252, 156, 140, 1.0)"
+        },
+        "rules_UNSTABLE": {}
+      }
+    },
+    "embedFlags": {
+      "liveboardEmbed": {
+        "showLiveboardTitle": false,
+        "showLiveboardDescription": false,
+        "isLiveboardHeaderSticky": false,
+        "hideLiveboardHeader": false,
+        "disabledActions": [],
+        "disabledActionReason": "Disabled",
+        "visibleActions": [],
+        "hiddenActions": []
+      }
+    },
+    "embedDisplay": {
+      "hideTitle": false,
+      "hideDescription": false
+    }
+  },
+  "userConfig": {
+    "users": [
+      {
+        "id": "power-user",
+        "name": "Power User",
+        "description": "Full access - can access all features including Search and Full App",
+        "locale": "en",
+        "access": {
+          "standardMenus": {
+            "html-home": true,
+            "liveboard-main": true,
+            "spotter-main": true,
+            "liveboard-2": true,
+            "spotter-2": true
+          },
+          "customMenus": [],
+          "hiddenActions": {
+            "enabled": true,
+            "actions": []
+          }
+        }
+      }
+    ],
+    "currentUserId": "power-user"
+  },
+  "version": "1.0.0",
+  "timestamp": "2026-04-20T12:23:26.357862",
+  "description": "TSE Demo Builder Configuration Export"
+}
