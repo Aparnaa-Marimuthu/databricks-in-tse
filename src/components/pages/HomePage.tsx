@@ -13,6 +13,7 @@ import {
   getDatabricksExternalViewerId,
 } from "../../services/databricksApi";
 import { applyTokens } from "../../utils/template/applyTemplateTokens";
+import { getStandardMenuRoute } from "../../utils/menuRouting";
 import { logError, logInfo } from "../../utils/template/templateLogger";
 import { TemplateTokens } from "../../types/template";
 
@@ -40,35 +41,6 @@ const dedupeHomeActions = (actions: HomePageAction[]): HomePageAction[] => {
     seen.add(key);
     return true;
   });
-};
-
-const getStandardMenuRoute = (menu: StandardMenu): string => {
-  const routeMap: Record<string, string> = {
-    home: "/",
-    dashboard: "/dashboard",
-    favorites: "/favorites",
-    "my-reports": "/my-reports",
-    spotter: "/spotter",
-    search: "/search",
-    "full-app": "/full-app",
-    "all-content": "/all-content",
-  };
-
-  if (routeMap[menu.id]) {
-    return routeMap[menu.id];
-  }
-
-  if (
-    menu.homePageType === "spotter" ||
-    menu.spotterModelId ||
-    menu.spotterSearchQuery ||
-    menu.providerContentType === "genie" ||
-    menu.providerContentType === "dashboard"
-  ) {
-    return `/menu/${menu.id}`;
-  }
-
-  return "/";
 };
 
 export default function HomePage({ onConfigUpdate, menuId }: HomePageProps) {
@@ -174,18 +146,6 @@ export default function HomePage({ onConfigUpdate, menuId }: HomePageProps) {
       ? `${normalizedThoughtspotHost}/#/pinboard/${mappedValue.trim()}`
       : "";
 
-  const templateTokens: TemplateTokens = {
-    COMPANY_NAME: context.appConfig.applicationName || "",
-    PRIMARY_COLOR:
-      context.stylingConfig.application.buttons.primary.backgroundColor || "",
-    BACKGROUND_COLOR:
-      context.stylingConfig.application.backgrounds.mainBackground || "",
-    DASHBOARD_URL: "/dashboard",
-    GENIE_URL: "/spotter",
-    dashboardUrl: liveboardPortalUrl || "/dashboard",
-  };
-
-  const providerHomeActions: HomePageAction[] = [];
   const dashboardMenu = standardMenus.find(
     (menu) =>
       menu.enabled &&
@@ -206,6 +166,25 @@ export default function HomePage({ onConfigUpdate, menuId }: HomePageProps) {
       )
   );
   const genieMenuRoute = genieMenu ? getStandardMenuRoute(genieMenu) : "";
+  const dashboardMenuRoute = dashboardMenu
+    ? getStandardMenuRoute(dashboardMenu)
+    : "/dashboard";
+  const myReportsMenuRoute = myReportsMenu
+    ? getStandardMenuRoute(myReportsMenu)
+    : "/my-reports";
+
+  const templateTokens: TemplateTokens = {
+    COMPANY_NAME: context.appConfig.applicationName || "",
+    PRIMARY_COLOR:
+      context.stylingConfig.application.buttons.primary.backgroundColor || "",
+    BACKGROUND_COLOR:
+      context.stylingConfig.application.backgrounds.mainBackground || "",
+    DASHBOARD_URL: dashboardMenuRoute,
+    GENIE_URL: genieMenuRoute || "/spotter",
+    dashboardUrl: liveboardPortalUrl || dashboardMenuRoute,
+  };
+
+  const providerHomeActions: HomePageAction[] = [];
 
   if (context.appConfig.provider === "thoughtspot" && liveboardPortalUrl) {
     providerHomeActions.push({
@@ -213,19 +192,19 @@ export default function HomePage({ onConfigUpdate, menuId }: HomePageProps) {
       href: liveboardPortalUrl,
       variant: "primary",
     });
-  } else if (context.appConfig.provider === "thoughtspot" && myReportsMenu) {
-    providerHomeActions.push({
-      label: "View Liveboard",
-      href: "/my-reports",
-      variant: "primary",
-    });
-  } else if (dashboardMenu) {
-    providerHomeActions.push({
-      label: "View Dashboard",
-      href: "/dashboard",
-      variant: "primary",
-    });
-  }
+    } else if (context.appConfig.provider === "thoughtspot" && myReportsMenu) {
+      providerHomeActions.push({
+        label: "View Liveboard",
+        href: myReportsMenuRoute,
+        variant: "primary",
+      });
+    } else if (dashboardMenu) {
+      providerHomeActions.push({
+        label: "View Dashboard",
+        href: dashboardMenuRoute,
+        variant: "primary",
+      });
+    }
 
   if (genieMenu) {
     providerHomeActions.push({

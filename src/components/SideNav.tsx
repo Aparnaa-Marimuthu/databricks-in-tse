@@ -3,6 +3,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { CustomMenu, UserConfig, StandardMenu } from "../types/thoughtspot";
+import { getStandardMenuRoute } from "../utils/menuRouting";
 import MaterialIcon from "./MaterialIcon";
 
 // Utility function to generate appropriate colors based on background and foreground
@@ -60,41 +61,6 @@ interface NavItem {
   route: string;
   isCustom?: boolean;
 }
-
-const getStandardMenuRoute = (menu: StandardMenu): string => {
-  const routeMap: { [key: string]: string } = {
-    home: "/",
-    dashboard: "/dashboard",
-    favorites: "/favorites",
-    "my-reports": "/my-reports",
-    spotter: "/spotter",
-    search: "/search",
-    "full-app": "/full-app",
-    "all-content": "/all-content",
-  };
-
-  if (routeMap[menu.id]) {
-    return routeMap[menu.id];
-  }
-
-  if (
-    menu.homePageType === "html" ||
-    menu.homePageType === "iframe" ||
-    menu.homePageType === "image" ||
-    menu.homePageType === "liveboard" ||
-    menu.homePageType === "answer" ||
-    !!menu.homePageValue ||
-    menu.homePageType === "spotter" ||
-    menu.spotterModelId ||
-    menu.spotterSearchQuery ||
-    menu.providerContentType === "genie" ||
-    menu.providerContentType === "dashboard"
-  ) {
-    return `/menu/${menu.id}`;
-  }
-
-  return "/";
-};
 
 interface SideNavProps {
   onSettingsClick?: () => void;
