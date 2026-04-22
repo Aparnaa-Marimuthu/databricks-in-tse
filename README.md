@@ -32,7 +32,7 @@ Follow these steps to run the application on your local machine.
 2.  **Install Dependencies**
     ```bash
     npm install
-    # or
+    # or 
     yarn install
     ```
 
