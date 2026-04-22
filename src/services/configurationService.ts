@@ -10,6 +10,10 @@ import {
   ConfigurationData,
   ConfigurationSource,
 } from "../types/thoughtspot";
+import {
+  getCanonicalHomeMenuId,
+  getStandardMenuRoute,
+} from "../utils/menuRouting";
 
 // Storage configuration
 const STORAGE_KEY = "tse-demo-builder-config";
@@ -2083,32 +2087,11 @@ export const redirectFromCustomMenu = (standardMenus: StandardMenu[]): void => {
     // Find the first available standard menu to redirect to
     const firstStandardMenu = standardMenus.find((menu) => menu.enabled);
     if (firstStandardMenu) {
-      const routeMap: { [key: string]: string } = {
-        home: "/",
-        dashboard: "/dashboard",
-        favorites: "/favorites",
-        "my-reports": "/my-reports",
-        spotter: "/spotter",
-        search: "/search",
-        "full-app": "/full-app",
-        "all-content": "/all-content",
-      };
-
+      const canonicalHomeMenuId = getCanonicalHomeMenuId(standardMenus);
       const redirectRoute =
-        routeMap[firstStandardMenu.id] ||
-        (firstStandardMenu.homePageType === "html" ||
-        firstStandardMenu.homePageType === "iframe" ||
-        firstStandardMenu.homePageType === "image" ||
-        firstStandardMenu.homePageType === "liveboard" ||
-        firstStandardMenu.homePageType === "answer" ||
-        !!firstStandardMenu.homePageValue ||
-        firstStandardMenu.homePageType === "spotter" ||
-        firstStandardMenu.spotterModelId ||
-        firstStandardMenu.spotterSearchQuery ||
-        firstStandardMenu.providerContentType === "genie" ||
-        firstStandardMenu.providerContentType === "dashboard"
-          ? `/menu/${firstStandardMenu.id}`
-          : "/");
+        firstStandardMenu.id === canonicalHomeMenuId
+          ? "/"
+          : getStandardMenuRoute(firstStandardMenu);
       console.log(`Redirecting from custom menu to: ${redirectRoute}`);
 
       // Redirect to the first available standard menu

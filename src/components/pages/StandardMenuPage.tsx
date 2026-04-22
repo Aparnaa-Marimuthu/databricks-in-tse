@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useAppContext } from "../Layout";
+import { getCanonicalHomeMenuId } from "../../utils/menuRouting";
 import DatabricksDashboardPage from "./DatabricksDashboardPage";
 import DatabricksGeniePage from "./DatabricksGeniePage";
 import HomePage from "./HomePage";
@@ -11,8 +14,22 @@ interface StandardMenuPageProps {
 }
 
 export default function StandardMenuPage({ menuId }: StandardMenuPageProps) {
+  const router = useRouter();
   const { standardMenus, appConfig } = useAppContext();
   const menu = standardMenus.find((item) => item.id === menuId);
+  const canonicalHomeMenuId = getCanonicalHomeMenuId(standardMenus);
+  const shouldRedirectToHome =
+    canonicalHomeMenuId === menuId && canonicalHomeMenuId !== "home";
+
+  useEffect(() => {
+    if (shouldRedirectToHome) {
+      router.replace("/");
+    }
+  }, [router, shouldRedirectToHome]);
+
+  if (shouldRedirectToHome) {
+    return <HomePage />;
+  }
 
   if (!menu) {
     return (

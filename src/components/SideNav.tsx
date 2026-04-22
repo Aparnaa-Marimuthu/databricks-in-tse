@@ -3,6 +3,10 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { CustomMenu, UserConfig, StandardMenu } from "../types/thoughtspot";
+import {
+  getCanonicalHomeMenuId,
+  getStandardMenuRoute,
+} from "../utils/menuRouting";
 import MaterialIcon from "./MaterialIcon";
 
 // Utility function to generate appropriate colors based on background and foreground
@@ -61,41 +65,6 @@ interface NavItem {
   isCustom?: boolean;
 }
 
-const getStandardMenuRoute = (menu: StandardMenu): string => {
-  const routeMap: { [key: string]: string } = {
-    home: "/",
-    dashboard: "/dashboard",
-    favorites: "/favorites",
-    "my-reports": "/my-reports",
-    spotter: "/spotter",
-    search: "/search",
-    "full-app": "/full-app",
-    "all-content": "/all-content",
-  };
-
-  if (routeMap[menu.id]) {
-    return routeMap[menu.id];
-  }
-
-  if (
-    menu.homePageType === "html" ||
-    menu.homePageType === "iframe" ||
-    menu.homePageType === "image" ||
-    menu.homePageType === "liveboard" ||
-    menu.homePageType === "answer" ||
-    !!menu.homePageValue ||
-    menu.homePageType === "spotter" ||
-    menu.spotterModelId ||
-    menu.spotterSearchQuery ||
-    menu.providerContentType === "genie" ||
-    menu.providerContentType === "dashboard"
-  ) {
-    return `/menu/${menu.id}`;
-  }
-
-  return "/";
-};
-
 interface SideNavProps {
   onSettingsClick?: () => void;
   standardMenus: StandardMenu[];
@@ -146,6 +115,7 @@ export default function SideNav({
     selectedColor: selectedColor || generatedColors.selectedColor,
     selectedTextColor: selectedTextColor || generatedColors.selectedTextColor,
   };
+  const canonicalHomeMenuId = getCanonicalHomeMenuId(standardMenus);
 
   // Filter menus based on user access (only if not already filtered)
   const filterMenusByUserAccess = (
@@ -228,7 +198,10 @@ export default function SideNav({
             id: standardMenu.id,
             name: standardMenu.name,
             icon: standardMenu.icon,
-            route: getStandardMenuRoute(standardMenu),
+            route:
+              standardMenu.id === canonicalHomeMenuId
+                ? "/"
+                : getStandardMenuRoute(standardMenu),
             isCustom: false,
           });
         }
@@ -260,7 +233,10 @@ export default function SideNav({
           id: standardMenu.id,
           name: standardMenu.name,
           icon: standardMenu.icon,
-          route: getStandardMenuRoute(standardMenu),
+          route:
+            standardMenu.id === canonicalHomeMenuId
+              ? "/"
+              : getStandardMenuRoute(standardMenu),
           isCustom: false,
         });
       });
@@ -275,7 +251,10 @@ export default function SideNav({
             id: menu.id,
             name: menu.name,
             icon: menu.icon,
-            route: getStandardMenuRoute(menu),
+            route:
+              menu.id === canonicalHomeMenuId
+                ? "/"
+                : getStandardMenuRoute(menu),
             isCustom: false,
           };
         });
