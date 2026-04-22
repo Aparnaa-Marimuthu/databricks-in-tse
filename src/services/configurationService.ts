@@ -10,7 +10,10 @@ import {
   ConfigurationData,
   ConfigurationSource,
 } from "../types/thoughtspot";
-import { getStandardMenuRoute } from "../utils/menuRouting";
+import {
+  getCanonicalHomeMenuId,
+  getStandardMenuRoute,
+} from "../utils/menuRouting";
 
 // Storage configuration
 const STORAGE_KEY = "tse-demo-builder-config";
@@ -2084,7 +2087,11 @@ export const redirectFromCustomMenu = (standardMenus: StandardMenu[]): void => {
     // Find the first available standard menu to redirect to
     const firstStandardMenu = standardMenus.find((menu) => menu.enabled);
     if (firstStandardMenu) {
-      const redirectRoute = getStandardMenuRoute(firstStandardMenu);
+      const canonicalHomeMenuId = getCanonicalHomeMenuId(standardMenus);
+      const redirectRoute =
+        firstStandardMenu.id === canonicalHomeMenuId
+          ? "/"
+          : getStandardMenuRoute(firstStandardMenu);
       console.log(`Redirecting from custom menu to: ${redirectRoute}`);
 
       // Redirect to the first available standard menu

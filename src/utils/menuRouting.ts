@@ -35,3 +35,17 @@ export const getStandardMenuRoute = (menu: StandardMenu): string => {
 
   return "/";
 };
+
+export const getCanonicalHomeMenuId = (
+  standardMenus: StandardMenu[]
+): string | undefined => {
+  const explicitHomeMenu = standardMenus.find(
+    (menu) => menu.enabled && menu.id === "home"
+  );
+  if (explicitHomeMenu) {
+    return explicitHomeMenu.id;
+  }
+
+  const firstEnabledMenu = standardMenus.find((menu) => menu.enabled);
+  return firstEnabledMenu?.id;
+};

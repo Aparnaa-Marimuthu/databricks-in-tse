@@ -3,7 +3,10 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { CustomMenu, UserConfig, StandardMenu } from "../types/thoughtspot";
-import { getStandardMenuRoute } from "../utils/menuRouting";
+import {
+  getCanonicalHomeMenuId,
+  getStandardMenuRoute,
+} from "../utils/menuRouting";
 import MaterialIcon from "./MaterialIcon";
 
 // Utility function to generate appropriate colors based on background and foreground
@@ -112,6 +115,7 @@ export default function SideNav({
     selectedColor: selectedColor || generatedColors.selectedColor,
     selectedTextColor: selectedTextColor || generatedColors.selectedTextColor,
   };
+  const canonicalHomeMenuId = getCanonicalHomeMenuId(standardMenus);
 
   // Filter menus based on user access (only if not already filtered)
   const filterMenusByUserAccess = (
@@ -194,7 +198,10 @@ export default function SideNav({
             id: standardMenu.id,
             name: standardMenu.name,
             icon: standardMenu.icon,
-            route: getStandardMenuRoute(standardMenu),
+            route:
+              standardMenu.id === canonicalHomeMenuId
+                ? "/"
+                : getStandardMenuRoute(standardMenu),
             isCustom: false,
           });
         }
@@ -226,7 +233,10 @@ export default function SideNav({
           id: standardMenu.id,
           name: standardMenu.name,
           icon: standardMenu.icon,
-          route: getStandardMenuRoute(standardMenu),
+          route:
+            standardMenu.id === canonicalHomeMenuId
+              ? "/"
+              : getStandardMenuRoute(standardMenu),
           isCustom: false,
         });
       });
@@ -241,7 +251,10 @@ export default function SideNav({
             id: menu.id,
             name: menu.name,
             icon: menu.icon,
-            route: getStandardMenuRoute(menu),
+            route:
+              menu.id === canonicalHomeMenuId
+                ? "/"
+                : getStandardMenuRoute(menu),
             isCustom: false,
           };
         });
